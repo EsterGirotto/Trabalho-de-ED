@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAD - Estruturas de Dados</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">ED</span><span>Estruturas de Dados</span></a>
+    <nav class="nav" aria-label="Menu principal">
+      <a href="entrega.html">Entrega</a>
+      <a class="active" href="tad.html">TAD</a>
+      <a href="lista-simples.html">Lista Simples</a>
+      <a href="lista-dupla.html">Lista Dupla</a>
+      <a href="manual.html">Manual</a>
+      <a class="login-link" href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">Conte&uacute;do 1</p>
+      <h1>TAD - Tipo Abstrato de Dados</h1>
+      <p>Um TAD define quais opera&ccedil;&otilde;es podem ser feitas com um conjunto de dados, escondendo detalhes internos da implementa&ccedil;&atilde;o.</p>
+    </section>
+
+    <section class="section topic">
+      <div class="topic-layout">
+        <article class="lesson">
+          <h3>Conceito</h3>
+          <p>TAD significa Tipo Abstrato de Dados. Ele representa uma forma de definir um conjunto de dados e as opera&ccedil;&otilde;es permitidas sobre esses dados.</p>
+          <p>A ideia principal &eacute; separar o que uma estrutura faz de como ela faz. Quem usa uma pilha, fila ou lista precisa conhecer suas opera&ccedil;&otilde;es, mas n&atilde;o precisa acessar diretamente sua organiza&ccedil;&atilde;o interna.</p>
+          <p>Esse conceito melhora a organiza&ccedil;&atilde;o do programa, cria um contrato de uso, facilita manuten&ccedil;&atilde;o e permite trocar a implementa&ccedil;&atilde;o interna sem alterar todas as partes do sistema.</p>
+
+          <h3>Exemplo em C#</h3>
+          <pre><code>public class Pilha
+{
+    private int[] dados = new int[10];
+    private int topo = -1;
+
+    public void Empilhar(int valor)
+    {
+        if (topo == dados.Length - 1)
+            throw new InvalidOperationException("Pilha cheia");
+
+        topo++;
+        dados[topo] = valor;
+    }
+
+    public int Desempilhar()
+    {
+        if (topo == -1)
+            throw new InvalidOperationException("Pilha vazia");
+
+        int valor = dados[topo];
+        topo--;
+        return valor;
+    }
+}</code></pre>
+          <p>Nesse exemplo, a classe <strong>Pilha</strong> funciona como um TAD. O usu&aacute;rio chama <strong>Empilhar</strong> e <strong>Desempilhar</strong>, mas n&atilde;o manipula diretamente o vetor interno.</p>
+        </article>
+        <aside class="topic-card">
+          <h3>Ideia central</h3>
+          <p>O TAD protege os detalhes internos e oferece opera&ccedil;&otilde;es bem definidas.</p>
+          <div class="mini-diagram">
+            <span>Usu&aacute;rio</span>
+            <span>&rarr;</span>
+            <span>Opera&ccedil;&otilde;es</span>
+            <span>&rarr;</span>
+            <span>Dados internos</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><p>Ambiente de Ensino de Estruturas de Dados</p></footer>
+</body>
+</html>

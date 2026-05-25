@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista Simples - Estruturas de Dados</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">ED</span><span>Estruturas de Dados</span></a>
+    <nav class="nav" aria-label="Menu principal">
+      <a href="entrega.html">Entrega</a>
+      <a href="tad.html">TAD</a>
+      <a class="active" href="lista-simples.html">Lista Simples</a>
+      <a href="lista-dupla.html">Lista Dupla</a>
+      <a href="manual.html">Manual</a>
+      <a class="login-link" href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">Conte&uacute;do 2</p>
+      <h1>Listas Simplesmente Encadeadas</h1>
+      <p>Estrutura composta por n&oacute;s, em que cada n&oacute; guarda um dado e uma refer&ecirc;ncia para o pr&oacute;ximo elemento.</p>
+    </section>
+
+    <section class="section topic">
+      <div class="topic-layout">
+        <article class="lesson">
+          <h3>Conceito</h3>
+          <p>Uma Lista Simplesmente Encadeada &eacute; uma estrutura formada por n&oacute;s. Cada n&oacute; guarda duas informa&ccedil;&otilde;es: o dado armazenado e a refer&ecirc;ncia para o pr&oacute;ximo n&oacute;.</p>
+          <p>Diferente de um vetor, a lista encadeada n&atilde;o precisa ocupar posi&ccedil;&otilde;es consecutivas na mem&oacute;ria. Os elementos ficam conectados por refer&ecirc;ncias.</p>
+          <p>Ela facilita inser&ccedil;&otilde;es e remo&ccedil;&otilde;es, mas n&atilde;o permite acesso direto por &iacute;ndice. Para encontrar um valor, normalmente &eacute; preciso percorrer a lista a partir do in&iacute;cio.</p>
+
+          <div class="linked-visual" aria-label="Lista simplesmente encadeada">
+            <span class="cell">10</span>
+            <span class="arrow">&rarr;</span>
+            <span class="cell">25</span>
+            <span class="arrow">&rarr;</span>
+            <span class="cell">40</span>
+            <span class="arrow">&rarr;</span>
+            <span class="cell null">null</span>
+          </div>
+
+          <h3>Exemplo em C#</h3>
+          <pre><code>public class No
+{
+    public int Valor;
+    public No? Proximo;
+
+    public No(int valor)
+    {
+        Valor = valor;
+        Proximo = null;
+    }
+}
+
+public class ListaSimples
+{
+    private No? inicio;
+
+    public void InserirNoInicio(int valor)
+    {
+        No novo = new No(valor);
+        novo.Proximo = inicio;
+        inicio = novo;
+    }
+
+    public void Exibir()
+    {
+        No? atual = inicio;
+
+        while (atual != null)
+        {
+            Console.WriteLine(atual.Valor);
+            atual = atual.Proximo;
+        }
+    }
+}</code></pre>
+        </article>
+        <aside class="topic-card red">
+          <h3>Vantagens e cuidados</h3>
+          <ul>
+            <li>Inser&ccedil;&atilde;o no in&iacute;cio &eacute; simples e r&aacute;pida.</li>
+            <li>O tamanho pode crescer dinamicamente.</li>
+            <li>O acesso n&atilde;o &eacute; direto por &iacute;ndice.</li>
+            <li>A navega&ccedil;&atilde;o ocorre apenas para frente.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><p>Ambiente de Ensino de Estruturas de Dados</p></footer>
+</body>
+</html>
