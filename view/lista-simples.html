@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista Simples - Estruturas de Dados</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">ED</span><span>Estruturas de Dados</span></a>
+    <nav class="nav" aria-label="Menu principal">
+      <a href="entrega.html">Vis&atilde;o Geral</a>
+      <a href="tad.html">TAD</a>
+      <a class="active" href="lista-simples.html">Lista Simples</a>
+      <a href="lista-dupla.html">Lista Dupla</a>
+      <a href="manual.html">Manual</a>
+      <a class="login-link" href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">Conte&uacute;do 2</p>
+      <h1>Listas Simplesmente Encadeadas</h1>
+      <p>Estrutura composta por n&oacute;s, em que cada n&oacute; guarda um dado e uma refer&ecirc;ncia para o pr&oacute;ximo elemento.</p>
+    </section>
+
+    <section class="section topic">
+      <div class="topic-layout">
+        <article class="lesson">
+          <h3>Conceito</h3>
+          <p>Uma Lista Simplesmente Encadeada &eacute; uma estrutura formada por <strong>n&oacute;s</strong>. Cada n&oacute; guarda o dado principal e uma refer&ecirc;ncia para o pr&oacute;ximo n&oacute; da sequ&ecirc;ncia. O primeiro n&oacute; costuma ser chamado de <strong>in&iacute;cio</strong> ou <strong>cabe&ccedil;a</strong> da lista.</p>
+          <p>Diferente de um vetor, a lista encadeada n&atilde;o precisa ocupar posi&ccedil;&otilde;es consecutivas na mem&oacute;ria. Cada elemento pode estar em uma regi&atilde;o diferente, desde que um n&oacute; saiba onde est&aacute; o pr&oacute;ximo. Essa liga&ccedil;&atilde;o &eacute; feita por refer&ecirc;ncias.</p>
+          <p>Ela facilita inser&ccedil;&otilde;es e remo&ccedil;&otilde;es no in&iacute;cio ou depois de um n&oacute; conhecido. Por outro lado, n&atilde;o permite acesso direto por &iacute;ndice como um vetor. Para encontrar um valor, normalmente &eacute; preciso come&ccedil;ar no primeiro n&oacute; e seguir n&oacute; por n&oacute;.</p>
+
+          <div class="example-box">
+            <h3>Exemplo do cotidiano</h3>
+            <p>Imagine uma ca&ccedil;a ao tesouro em que cada pista aponta para a pr&oacute;xima pista. Voc&ecirc; n&atilde;o consegue ir direto para a terceira pista sem passar pelas anteriores, porque cada uma informa apenas o pr&oacute;ximo passo. A lista simplesmente encadeada funciona desse jeito: cada n&oacute; sabe apenas quem vem depois.</p>
+          </div>
+
+          <div class="linked-visual" aria-label="Lista simplesmente encadeada">
+            <span class="cell">10</span>
+            <span class="arrow">&rarr;</span>
+            <span class="cell">25</span>
+            <span class="arrow">&rarr;</span>
+            <span class="cell">40</span>
+            <span class="arrow">&rarr;</span>
+            <span class="cell null">null</span>
+          </div>
+
+          <h3>Opera&ccedil;&otilde;es principais</h3>
+          <ol class="step-list">
+            <li><strong>Inserir no in&iacute;cio:</strong> o novo n&oacute; aponta para o antigo primeiro n&oacute; e passa a ser o in&iacute;cio.</li>
+            <li><strong>Inserir no fim:</strong> a lista &eacute; percorrida at&eacute; o &uacute;ltimo n&oacute;, que passa a apontar para o novo.</li>
+            <li><strong>Buscar:</strong> come&ccedil;a no in&iacute;cio e compara cada valor at&eacute; encontrar o dado ou chegar em <strong>null</strong>.</li>
+            <li><strong>Remover:</strong> ajusta a refer&ecirc;ncia do n&oacute; anterior para pular o n&oacute; removido.</li>
+          </ol>
+
+          <h3>Exemplo em C#</h3>
+          <pre><code>public class No
+{
+    public int Valor;
+    public No? Proximo;
+
+    public No(int valor)
+    {
+        Valor = valor;
+        Proximo = null;
+    }
+}
+
+public class ListaSimples
+{
+    private No? inicio;
+
+    public void InserirNoInicio(int valor)
+    {
+        No novo = new No(valor);
+        novo.Proximo = inicio;
+        inicio = novo;
+    }
+
+    public void Exibir()
+    {
+        No? atual = inicio;
+
+        while (atual != null)
+        {
+            Console.WriteLine(atual.Valor);
+            atual = atual.Proximo;
+        }
+    }
+}</code></pre>
+          <h3>Busca de um valor em C#</h3>
+          <pre><code>public bool Contem(int valor)
+{
+    No? atual = inicio;
+
+    while (atual != null)
+    {
+        if (atual.Valor == valor)
+            return true;
+
+        atual = atual.Proximo;
+    }
+
+    return false;
+}</code></pre>
+          <p>A busca percorre a lista do come&ccedil;o ao fim. Se encontrar o valor, retorna <strong>true</strong>. Se chegar ao final da lista, representado por <strong>null</strong>, retorna <strong>false</strong>.</p>
+        </article>
+        <aside class="topic-card red">
+          <h3>Vantagens e cuidados</h3>
+          <ul>
+            <li>Inser&ccedil;&atilde;o no in&iacute;cio &eacute; simples e r&aacute;pida.</li>
+            <li>O tamanho pode crescer dinamicamente.</li>
+            <li>O acesso n&atilde;o &eacute; direto por &iacute;ndice.</li>
+            <li>A navega&ccedil;&atilde;o ocorre apenas para frente.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section video-section">
+      <div class="section-heading">
+        <p class="eyebrow">Apoio em v&iacute;deo</p>
+        <h2>Links do YouTube sobre Lista Simples</h2>
+      </div>
+      <div class="video-grid">
+        <a class="video-card" href="https://www.youtube.com/results?search_query=lista+simplesmente+encadeada+estrutura+de+dados" target="_blank" rel="noopener">
+          <span>Buscar no YouTube</span>
+          <strong>Lista simplesmente encadeada</strong>
+          <p>Pesquise aulas com desenho de n&oacute;s, ponteiros e refer&ecirc;ncias.</p>
+        </a>
+        <a class="video-card" href="https://www.youtube.com/results?search_query=lista+simplesmente+encadeada+C%23" target="_blank" rel="noopener">
+          <span>Buscar em C#</span>
+          <strong>Implementa&ccedil;&atilde;o em C#</strong>
+          <p>Veja exemplos pr&aacute;ticos de cria&ccedil;&atilde;o, inser&ccedil;&atilde;o e exibi&ccedil;&atilde;o.</p>
+        </a>
+        <a class="video-card" href="https://www.youtube.com/results?search_query=inserir+remover+buscar+lista+encadeada" target="_blank" rel="noopener">
+          <span>Buscar opera&ccedil;&otilde;es</span>
+          <strong>Inserir, remover e buscar</strong>
+          <p>Reforce as opera&ccedil;&otilde;es mais cobradas em listas encadeadas.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><p>&copy; 2026 Ester Girotto, Kepler Yuri, Kevyn Yuj. Todos os direitos reservados.</p></footer>
+</body>
+</html>

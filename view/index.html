@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ambiente de Ensino de Estruturas de Dados</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
   <header class="topbar">
@@ -13,7 +13,7 @@
       <span>Estruturas de Dados</span>
     </a>
     <nav class="nav" aria-label="Menu principal">
-      <a href="entrega.html">Entrega</a>
+      <a href="entrega.html">Vis&atilde;o Geral</a>
       <a href="tad.html">TAD</a>
       <a href="lista-simples.html">Lista Simples</a>
       <a href="lista-dupla.html">Lista Dupla</a>
@@ -25,16 +25,16 @@
   <main>
     <section class="hero" id="inicio">
       <div class="hero-content">
-        <p class="eyebrow">Trabalho Pr&aacute;tico 2</p>
+        <p class="eyebrow">Ambiente educacional</p>
         <h1>Ambiente de Ensino de Estruturas de Dados</h1>
         <p class="hero-text">
-          Uma interface web para explicar o que s&atilde;o Estruturas de Dados, por que elas
-          s&atilde;o importantes e como funcionam os principais conceitos pedidos no trabalho:
+          Uma plataforma de estudos para explicar o que s&atilde;o Estruturas de Dados, por que elas
+          s&atilde;o importantes e como funcionam conceitos essenciais da programa&ccedil;&atilde;o:
           TAD, Listas Simplesmente Encadeadas e Listas Duplamente Encadeadas.
         </p>
         <div class="hero-actions">
           <a class="button primary" href="tad.html">Come&ccedil;ar estudo</a>
-          <a class="button secondary" href="entrega.html">Ver requisitos</a>
+          <a class="button secondary" href="entrega.html">Ver vis&atilde;o geral</a>
         </div>
       </div>
       <div class="hero-panel" aria-label="Representa&ccedil;&atilde;o visual de n&oacute;s encadeados">
@@ -92,13 +92,13 @@
 
     <section class="section">
       <div class="section-heading">
-        <p class="eyebrow">Conte&uacute;dos separados por p&aacute;gina</p>
+        <p class="eyebrow">Trilha de aprendizagem</p>
         <h2>Escolha um t&oacute;pico para estudar</h2>
       </div>
       <div class="requirements-grid">
         <a class="info-card topic-link-card" href="entrega.html">
-          <h3>Entrega</h3>
-          <p>Veja a an&aacute;lise dos requisitos pedidos no PDF do trabalho.</p>
+          <h3>Vis&atilde;o Geral</h3>
+          <p>Conhe&ccedil;a os objetivos do ambiente e os conceitos que guiam o estudo.</p>
         </a>
         <a class="info-card topic-link-card" href="tad.html">
           <h3>TAD</h3>
@@ -117,7 +117,18 @@
   </main>
 
   <footer class="footer">
-    <p>Ambiente de Ensino de Estruturas de Dados - Front-end em HTML e CSS</p>
+    <p>&copy; 2026 Ester Girotto, Kepler Yuri, Kevyn Yuj. Todos os direitos reservados.</p>
   </footer>
+
+  <div class="welcome-overlay" id="boasVindasModal" role="dialog" aria-modal="true" aria-labelledby="boasVindasTitulo">
+    <div class="welcome-modal">
+      <p class="eyebrow">Cadastro conclu&iacute;do</p>
+      <h2 id="boasVindasTitulo">Bem-vindo ao ambiente de estudos!</h2>
+      <p>Seu cadastro foi finalizado com sucesso. Agora voc&ecirc; pode continuar aprendendo Estruturas de Dados com os conte&uacute;dos da plataforma.</p>
+      <button class="button primary full" type="button" id="fecharBoasVindas">Continuar estudando</button>
+    </div>
+  </div>
+
+  <script src="../js/boas-vindas.js"></script>
 </body>
 </html>

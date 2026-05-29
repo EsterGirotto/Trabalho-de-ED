@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - Estruturas de Dados</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="login-page">
+  <main class="login-shell">
+    <section class="login-info">
+      <a class="brand login-brand" href="index.html">
+        <span class="brand-mark">ED</span>
+        <span>Estruturas de Dados</span>
+      </a>
+      <p class="eyebrow">Novo acesso</p>
+      <h1>Crie sua conta de estudante</h1>
+      <p>Informe seus dados acad&ecirc;micos para acessar o ambiente de estudos de Estruturas de Dados.</p>
+    </section>
+
+    <section class="login-card" aria-label="Formul&aacute;rio de cadastro">
+      <h2>Cadastro</h2>
+      <form id="cadastroForm" action="#" method="post">
+        <label for="nome">Nome completo</label>
+        <input id="nome" name="nome" type="text" placeholder="Digite seu nome completo" required>
+
+        <label for="ra">RA</label>
+        <input id="ra" name="ra" type="text" placeholder="Digite seu RA" required>
+
+        <label for="email">E-mail institucional</label>
+        <input id="email" name="email" type="email" placeholder="seunome@institucional.com" required>
+
+        <label for="termo">Termo que est&aacute; cursando</label>
+        <select id="termo" name="termo" required>
+          <option value="">Selecione o termo</option>
+          <option value="1">1&ordm; termo</option>
+          <option value="2">2&ordm; termo</option>
+          <option value="3">3&ordm; termo</option>
+          <option value="4">4&ordm; termo</option>
+          <option value="5">5&ordm; termo</option>
+          <option value="6">6&ordm; termo</option>
+        </select>
+
+        <button class="button primary full" type="submit">Finalizar cadastro</button>
+      </form>
+
+      <p class="login-note">J&aacute; possui conta? <a href="login.html">Entrar agora</a></p>
+      <a class="back-home" href="index.html">Voltar para o in&iacute;cio</a>
+    </section>
+  </main>
+  <footer class="login-footer">
+    <p>&copy; 2026 Ester Girotto, Kepler Yuri, Kevyn Yuj. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById("cadastroForm");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      window.location.href = "index.html?cadastro=sucesso";
+    });
+  </script>
+</body>
+</html>

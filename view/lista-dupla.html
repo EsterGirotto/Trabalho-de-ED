@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista Dupla - Estruturas de Dados</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">ED</span><span>Estruturas de Dados</span></a>
+    <nav class="nav" aria-label="Menu principal">
+      <a href="entrega.html">Vis&atilde;o Geral</a>
+      <a href="tad.html">TAD</a>
+      <a href="lista-simples.html">Lista Simples</a>
+      <a class="active" href="lista-dupla.html">Lista Dupla</a>
+      <a href="manual.html">Manual</a>
+      <a class="login-link" href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">Conte&uacute;do 3</p>
+      <h1>Listas Duplamente Encadeadas</h1>
+      <p>Estrutura em que cada n&oacute; aponta para o pr&oacute;ximo e para o anterior, permitindo navega&ccedil;&atilde;o nos dois sentidos.</p>
+    </section>
+
+    <section class="section topic">
+      <div class="topic-layout">
+        <article class="lesson">
+          <h3>Conceito</h3>
+          <p>A Lista Duplamente Encadeada tamb&eacute;m &eacute; formada por n&oacute;s, mas cada n&oacute; possui duas refer&ecirc;ncias: uma para o pr&oacute;ximo n&oacute; e outra para o n&oacute; anterior. Por isso, ela consegue caminhar nos dois sentidos.</p>
+          <p>Essa estrutura &eacute; muito &uacute;til quando o sistema precisa avan&ccedil;ar e voltar entre elementos. Hist&oacute;ricos de navega&ccedil;&atilde;o, playlists, editores de texto, carross&eacute;is e listas ordenadas podem se beneficiar desse tipo de organiza&ccedil;&atilde;o.</p>
+          <p>A principal diferen&ccedil;a em rela&ccedil;&atilde;o &agrave; lista simples &eacute; que cada n&oacute; sabe quem vem antes e quem vem depois. Isso facilita algumas remo&ccedil;&otilde;es e navega&ccedil;&otilde;es, mas exige mais mem&oacute;ria e mais cuidado ao atualizar as liga&ccedil;&otilde;es.</p>
+
+          <div class="example-box">
+            <h3>Exemplo do cotidiano</h3>
+            <p>Pense em uma playlist de m&uacute;sicas. Voc&ecirc; pode avan&ccedil;ar para a pr&oacute;xima faixa ou voltar para a faixa anterior. Cada m&uacute;sica conhece sua vizinha da frente e sua vizinha de tr&aacute;s. Essa &eacute; a ideia central de uma lista duplamente encadeada.</p>
+          </div>
+
+          <div class="linked-visual double" aria-label="Lista duplamente encadeada">
+            <span class="cell null">null</span>
+            <span class="arrow">&harr;</span>
+            <span class="cell">8</span>
+            <span class="arrow">&harr;</span>
+            <span class="cell">16</span>
+            <span class="arrow">&harr;</span>
+            <span class="cell">32</span>
+            <span class="arrow">&harr;</span>
+            <span class="cell null">null</span>
+          </div>
+
+          <h3>Como acontece uma inser&ccedil;&atilde;o no fim</h3>
+          <ol class="step-list">
+            <li>Cria-se um novo n&oacute; com o valor desejado.</li>
+            <li>O antigo &uacute;ltimo n&oacute; passa a apontar para o novo n&oacute;.</li>
+            <li>O novo n&oacute; aponta de volta para o antigo &uacute;ltimo n&oacute;.</li>
+            <li>A refer&ecirc;ncia <strong>fim</strong> &eacute; atualizada para o novo n&oacute;.</li>
+          </ol>
+
+          <h3>Exemplo em C#</h3>
+          <pre><code>public class NoDuplo
+{
+    public int Valor;
+    public NoDuplo? Anterior;
+    public NoDuplo? Proximo;
+
+    public NoDuplo(int valor)
+    {
+        Valor = valor;
+    }
+}
+
+public class ListaDupla
+{
+    private NoDuplo? inicio;
+    private NoDuplo? fim;
+
+    public void InserirNoFim(int valor)
+    {
+        NoDuplo novo = new NoDuplo(valor);
+
+        if (inicio == null)
+        {
+            inicio = novo;
+            fim = novo;
+            return;
+        }
+
+        fim!.Proximo = novo;
+        novo.Anterior = fim;
+        fim = novo;
+    }
+}</code></pre>
+          <h3>Percorrendo de tr&aacute;s para frente</h3>
+          <pre><code>public void ExibirDeTrasParaFrente()
+{
+    NoDuplo? atual = fim;
+
+    while (atual != null)
+    {
+        Console.WriteLine(atual.Valor);
+        atual = atual.Anterior;
+    }
+}</code></pre>
+          <p>Esse m&eacute;todo s&oacute; &eacute; poss&iacute;vel porque cada n&oacute; possui a refer&ecirc;ncia <strong>Anterior</strong>. Em uma lista simplesmente encadeada, o caminho natural existe apenas para frente.</p>
+        </article>
+        <aside class="topic-card navy">
+          <h3>Compara&ccedil;&atilde;o r&aacute;pida</h3>
+          <table>
+            <thead><tr><th>Aspecto</th><th>Simples</th><th>Dupla</th></tr></thead>
+            <tbody>
+              <tr><td>Dire&ccedil;&atilde;o</td><td>Uma</td><td>Duas</td></tr>
+              <tr><td>Mem&oacute;ria</td><td>Menor</td><td>Maior</td></tr>
+              <tr><td>N&oacute;</td><td>Dado + pr&oacute;ximo</td><td>Anterior + dado + pr&oacute;ximo</td></tr>
+            </tbody>
+          </table>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section video-section">
+      <div class="section-heading">
+        <p class="eyebrow">Apoio em v&iacute;deo</p>
+        <h2>Links do YouTube sobre Lista Dupla</h2>
+      </div>
+      <div class="video-grid">
+        <a class="video-card" href="https://www.youtube.com/results?search_query=lista+duplamente+encadeada+estrutura+de+dados" target="_blank" rel="noopener">
+          <span>Buscar no YouTube</span>
+          <strong>Lista duplamente encadeada</strong>
+          <p>Pesquise aulas com explica&ccedil;&otilde;es visuais sobre anterior e pr&oacute;ximo.</p>
+        </a>
+        <a class="video-card" href="https://www.youtube.com/results?search_query=lista+duplamente+encadeada+C%23" target="_blank" rel="noopener">
+          <span>Buscar em C#</span>
+          <strong>Implementa&ccedil;&atilde;o em C#</strong>
+          <p>Veja exemplos de classes com n&oacute; anterior, n&oacute; pr&oacute;ximo, in&iacute;cio e fim.</p>
+        </a>
+        <a class="video-card" href="https://www.youtube.com/results?search_query=diferen%C3%A7a+lista+simples+e+lista+duplamente+encadeada" target="_blank" rel="noopener">
+          <span>Comparar estruturas</span>
+          <strong>Lista simples x lista dupla</strong>
+          <p>Compare vantagens, desvantagens, mem&oacute;ria e navega&ccedil;&atilde;o.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><p>&copy; 2026 Ester Girotto, Kepler Yuri, Kevyn Yuj. Todos os direitos reservados.</p></footer>
+</body>
+</html>
