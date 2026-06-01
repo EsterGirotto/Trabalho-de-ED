@@ -83,5 +83,5 @@ INSERT INTO topicos (slug, titulo, descricao, ordem) VALUES
   ('manual',        'Manual de Uso',                 'Guia de utilização da plataforma e dos exemplos em C#.',          5);
 
 INSERT INTO usuarios (nome, ra, email, senha_hash, termo) VALUES
-  ('Estudante Demo', 'RA000001', 'demo@institucional.com',
+  ('Estudante 1', 'RA000001', 'exemplo@exemplo.com',
    '$2y$10$WMGvZUPp3Qw3f1PkflB1.e1Yz6jF7OqThz1V7DUB2YFsHNkFcxKDy', 2);
