@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TAD - Estruturas de Dados</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css?v=5">
 </head>
-<body>
+<body class="auth-checking" data-topico="tad" data-require-auth="true">
   <header class="topbar">
     <a class="brand" href="index.html"><span class="brand-mark">ED</span><span>Estruturas de Dados</span></a>
     <nav class="nav" aria-label="Menu principal">
@@ -15,7 +15,8 @@
       <a href="lista-simples.html">Lista Simples</a>
       <a href="lista-dupla.html">Lista Dupla</a>
       <a href="manual.html">Manual</a>
-      <a class="login-link" href="login.html">Login</a>
+      <a href="dashboard.html">Minha &Aacute;rea</a>
+      <a class="login-link auth-link" href="login.html">Login</a>
     </nav>
   </header>
 
@@ -34,6 +35,29 @@
           <p>A ideia principal &eacute; separar <strong>interface</strong> de <strong>implementa&ccedil;&atilde;o</strong>. A interface representa os m&eacute;todos dispon&iacute;veis, como inserir, remover, buscar ou consultar. A implementa&ccedil;&atilde;o representa a forma como os dados s&atilde;o guardados, por exemplo em vetor, lista encadeada ou objetos ligados por refer&ecirc;ncia.</p>
           <p>Esse conceito melhora a organiza&ccedil;&atilde;o do programa porque cria um contrato de uso. Quem utiliza o TAD respeita as opera&ccedil;&otilde;es definidas e n&atilde;o altera diretamente os dados internos. Isso reduz erros, facilita manuten&ccedil;&atilde;o e permite trocar a estrutura interna sem reescrever todo o sistema.</p>
 
+          <div class="concept-band" aria-label="Partes de um TAD">
+            <div class="concept-item">
+              <span>1</span>
+              <strong>Dados</strong>
+              <p>Representam o estado interno do objeto, como valores, contadores, ponteiros ou refer&ecirc;ncias.</p>
+            </div>
+            <div class="concept-item">
+              <span>2</span>
+              <strong>Opera&ccedil;&otilde;es</strong>
+              <p>Definem o que pode ser feito: inserir, remover, consultar, alterar, limpar ou validar.</p>
+            </div>
+            <div class="concept-item">
+              <span>3</span>
+              <strong>Regras</strong>
+              <p>Protegem o estado interno para impedir valores inv&aacute;lidos e comportamentos inesperados.</p>
+            </div>
+            <div class="concept-item">
+              <span>4</span>
+              <strong>Interface</strong>
+              <p>Mostra ao usu&aacute;rio apenas os m&eacute;todos necess&aacute;rios, escondendo detalhes de implementa&ccedil;&atilde;o.</p>
+            </div>
+          </div>
+
           <div class="example-box">
             <h3>Exemplo do cotidiano</h3>
             <p>Pense em um caixa eletr&ocirc;nico. Voc&ecirc; escolhe opera&ccedil;&otilde;es como sacar, depositar e consultar saldo. N&atilde;o precisa saber como o banco valida a transa&ccedil;&atilde;o, atualiza registros ou comunica com o servidor. O caixa oferece uma interface simples e protege os detalhes internos. Um TAD funciona de forma parecida dentro do c&oacute;digo.</p>
@@ -46,6 +70,33 @@
             <li>Proteja os atributos internos para evitar altera&ccedil;&otilde;es indevidas.</li>
             <li>Ofere&ccedil;a m&eacute;todos p&uacute;blicos para manipular os dados com seguran&ccedil;a.</li>
           </ol>
+
+          <h3>Especifica&ccedil;&atilde;o x implementa&ccedil;&atilde;o</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Parte</th><th>O que responde</th><th>Exemplo em uma pilha</th></tr></thead>
+              <tbody>
+                <tr><td>Especifica&ccedil;&atilde;o</td><td>Quais opera&ccedil;&otilde;es existem e qual resultado cada uma deve entregar.</td><td>Empilhar, desempilhar, consultar topo e verificar se est&aacute; vazia.</td></tr>
+                <tr><td>Implementa&ccedil;&atilde;o</td><td>Como os dados s&atilde;o guardados por dentro.</td><td>Vetor, lista encadeada ou cole&ccedil;&atilde;o pronta da linguagem.</td></tr>
+                <tr><td>Invariante</td><td>Quais regras precisam permanecer verdadeiras.</td><td>O topo nunca pode apontar para uma posi&ccedil;&atilde;o fora da pilha.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="detail-grid">
+            <article class="detail-card">
+              <strong>Por que ajuda?</strong>
+              <p>O c&oacute;digo fica menos dependente de detalhes internos. Se a implementa&ccedil;&atilde;o mudar, quem usa o TAD continua chamando os mesmos m&eacute;todos.</p>
+            </article>
+            <article class="detail-card">
+              <strong>Onde aparece?</strong>
+              <p>Em pilhas, filas, listas, contas banc&aacute;rias, carrinhos de compra, agendas, jogos e objetos de sistemas reais.</p>
+            </article>
+            <article class="detail-card">
+              <strong>Erro comum</strong>
+              <p>Deixar os atributos p&uacute;blicos demais. Isso quebra o encapsulamento e permite altera&ccedil;&otilde;es sem passar pelas regras.</p>
+            </article>
+          </div>
 
           <h3>Exemplo em C#</h3>
           <pre><code>public class Pilha
@@ -101,6 +152,22 @@
     }
 }</code></pre>
           <p>O atributo <strong>saldo</strong> fica protegido. O acesso acontece somente por opera&ccedil;&otilde;es controladas, como depositar, sacar e consultar. Isso impede que outra parte do sistema defina um saldo negativo sem passar pelas regras da classe.</p>
+
+          <h3>Resumo para prova</h3>
+          <div class="review-grid">
+            <article class="review-card">
+              <h3>Defini&ccedil;&atilde;o curta</h3>
+              <p>TAD &eacute; um conjunto de dados mais opera&ccedil;&otilde;es, definido pelo comportamento e n&atilde;o pelos detalhes internos.</p>
+            </article>
+            <article class="review-card">
+              <h3>Palavras-chave</h3>
+              <p>Abstra&ccedil;&atilde;o, encapsulamento, interface, implementa&ccedil;&atilde;o, contrato e invariantes.</p>
+            </article>
+            <article class="review-card">
+              <h3>Exemplos cl&aacute;ssicos</h3>
+              <p>Pilha, fila, lista, conjunto, conta banc&aacute;ria, data e agenda de contatos.</p>
+            </article>
+          </div>
         </article>
         <aside class="topic-card">
           <h3>Ideia central</h3>
@@ -119,28 +186,40 @@
     <section class="section video-section">
       <div class="section-heading">
         <p class="eyebrow">Apoio em v&iacute;deo</p>
-        <h2>Links do YouTube sobre TAD</h2>
+        <h2>V&iacute;deos sobre TAD</h2>
       </div>
       <div class="video-grid">
-        <a class="video-card" href="https://www.youtube.com/results?search_query=tipo+abstrato+de+dados+estrutura+de+dados" target="_blank" rel="noopener">
-          <span>Buscar no YouTube</span>
-          <strong>Tipo Abstrato de Dados explicado</strong>
-          <p>Pesquise aulas introdut&oacute;rias sobre o conceito de TAD e sua import&acirc;ncia.</p>
+        <a class="video-card" href="https://www.youtube.com/watch?v=bryesHll0vY" target="_blank" rel="noopener">
+          <div class="video-thumb"><img src="https://img.youtube.com/vi/bryesHll0vY/hqdefault.jpg" alt="Thumbnail do v&iacute;deo sobre TAD"></div>
+          <div class="video-body">
+            <span>Aula principal</span>
+            <strong>TAD - Tipo Abstrato de Dado</strong>
+            <p>Refor&ccedil;a o conceito de TAD com linguagem C e exemplos de opera&ccedil;&otilde;es.</p>
+          </div>
         </a>
-        <a class="video-card" href="https://www.youtube.com/results?search_query=TAD+pilha+fila+lista+estrutura+de+dados" target="_blank" rel="noopener">
-          <span>Buscar exemplos</span>
-          <strong>TAD com pilha, fila e lista</strong>
-          <p>Veja exemplos de TAD aplicados nas estruturas mais comuns.</p>
+        <a class="video-card" href="https://www.youtube.com/watch?v=OwiHoj-mAi8" target="_blank" rel="noopener">
+          <div class="video-thumb"><img src="https://img.youtube.com/vi/OwiHoj-mAi8/hqdefault.jpg" alt="Thumbnail do v&iacute;deo sobre listas, pilhas e filas"></div>
+          <div class="video-body">
+            <span>Conex&atilde;o com estruturas</span>
+            <strong>Listas, pilhas e filas</strong>
+            <p>Ajuda a entender como TAD aparece em estruturas estudadas na disciplina.</p>
+          </div>
         </a>
-        <a class="video-card" href="https://www.youtube.com/results?search_query=encapsulamento+classe+C%23+tipo+abstrato+de+dados" target="_blank" rel="noopener">
-          <span>Buscar em C#</span>
-          <strong>Encapsulamento em C#</strong>
-          <p>Reforce a rela&ccedil;&atilde;o entre classes, m&eacute;todos p&uacute;blicos e dados privados.</p>
+        <a class="video-card" href="https://www.youtube.com/watch?v=Xlkh6-10ILw" target="_blank" rel="noopener">
+          <div class="video-thumb"><img src="https://img.youtube.com/vi/Xlkh6-10ILw/hqdefault.jpg" alt="Thumbnail do v&iacute;deo sobre pilha com lista encadeada"></div>
+          <div class="video-body">
+            <span>Aplica&ccedil;&atilde;o</span>
+            <strong>Pilha com lista encadeada</strong>
+            <p>Mostra um TAD aplicado a uma estrutura din&acirc;mica baseada em n&oacute;s.</p>
+          </div>
         </a>
       </div>
     </section>
   </main>
 
   <footer class="footer"><p>&copy; 2026 Ester Girotto, Kepler Yuri, Kevyn Yuj. Todos os direitos reservados.</p></footer>
+  <script src="../js/auth-status.js?v=5"></script>
+  <script src="../js/auth-guard.js?v=5"></script>
+  <script src="../js/progresso.js?v=5"></script>
 </body>
 </html>

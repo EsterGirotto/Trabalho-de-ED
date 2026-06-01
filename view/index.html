@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ambiente de Ensino de Estruturas de Dados</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css?v=5">
 </head>
 <body>
   <header class="topbar">
@@ -18,7 +18,8 @@
       <a href="lista-simples.html">Lista Simples</a>
       <a href="lista-dupla.html">Lista Dupla</a>
       <a href="manual.html">Manual</a>
-      <a class="login-link" href="login.html">Login</a>
+      <a href="dashboard.html">Minha &Aacute;rea</a>
+      <a class="login-link auth-link" href="login.html">Login</a>
     </nav>
   </header>
 
@@ -114,6 +115,27 @@
         </a>
       </div>
     </section>
+
+    <section class="section">
+      <div class="section-heading wide">
+        <p class="eyebrow">O que voc&ecirc; vai praticar</p>
+        <h2>Da ideia abstrata at&eacute; a manipula&ccedil;&atilde;o dos n&oacute;s</h2>
+      </div>
+      <div class="detail-grid">
+        <article class="detail-card">
+          <strong>Modelar um TAD</strong>
+          <p>Identificar dados, opera&ccedil;&otilde;es, regras internas e interface p&uacute;blica de uma estrutura.</p>
+        </article>
+        <article class="detail-card">
+          <strong>Entender mem&oacute;ria din&acirc;mica</strong>
+          <p>Visualizar como objetos podem estar espalhados na mem&oacute;ria e ainda formar uma sequ&ecirc;ncia por refer&ecirc;ncias.</p>
+        </article>
+        <article class="detail-card">
+          <strong>Comparar escolhas</strong>
+          <p>Perceber quando uma lista simples basta e quando a lista dupla compensa o custo extra.</p>
+        </article>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
@@ -129,6 +151,7 @@
     </div>
   </div>
 
-  <script src="../js/boas-vindas.js"></script>
+  <script src="../js/auth-status.js?v=5"></script>
+  <script src="../js/boas-vindas.js?v=5"></script>
 </body>
 </html>

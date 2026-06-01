@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil - Estruturas de Dados</title>
+  <link rel="stylesheet" href="../css/styles.css?v=5">
+</head>
+<body class="auth-checking" data-require-auth="true">
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">ED</span><span>Estruturas de Dados</span></a>
+    <nav class="nav" aria-label="Menu principal">
+      <a href="entrega.html">Vis&atilde;o Geral</a>
+      <a href="tad.html">TAD</a>
+      <a href="lista-simples.html">Lista Simples</a>
+      <a href="lista-dupla.html">Lista Dupla</a>
+      <a href="manual.html">Manual</a>
+      <a href="dashboard.html">Minha &Aacute;rea</a>
+      <a class="login-link auth-link active" href="perfil.html">Perfil</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero profile-hero">
+      <p class="eyebrow">Conta do estudante</p>
+      <h1>Meu perfil</h1>
+      <p>Atualize seus dados, escolha uma foto e mantenha sua senha em seguran&ccedil;a.</p>
+    </section>
+
+    <section class="section profile-section">
+      <div class="form-message profile-message" data-profile-message></div>
+
+      <div class="profile-layout">
+        <aside class="profile-card">
+          <div class="profile-avatar" aria-label="Foto de perfil">
+            <img src="" alt="Foto de perfil" data-profile-photo hidden>
+            <span data-profile-initials-box><span data-profile-initials>ED</span></span>
+          </div>
+          <h2 data-profile-name>Carregando...</h2>
+          <p data-profile-email>carregando@institucional.com</p>
+
+          <a class="button primary full profile-logout" href="../php/logout.php">Sair da conta</a>
+
+          <form class="profile-upload" action="../php/foto_perfil.php" method="post" enctype="multipart/form-data">
+            <label class="file-picker" for="foto">Escolher foto</label>
+            <input id="foto" name="foto" type="file" accept="image/png,image/jpeg,image/webp" required>
+            <button class="button primary full" type="submit">Salvar foto</button>
+          </form>
+
+          <form action="../php/remover_foto.php" method="post">
+            <button class="button tool full" type="submit" data-remove-photo hidden>Remover foto</button>
+          </form>
+        </aside>
+
+        <div class="profile-forms">
+          <section class="profile-form-card">
+            <h2>Dados pessoais</h2>
+            <form action="../php/atualizar_perfil.php" method="post">
+              <label for="perfilNome">Nome completo</label>
+              <input id="perfilNome" name="nome" type="text" required>
+
+              <label for="perfilRa">RA</label>
+              <input id="perfilRa" name="ra" type="text" required>
+
+              <label for="perfilEmail">E-mail institucional</label>
+              <input id="perfilEmail" name="email" type="email" required>
+
+              <label for="perfilTermo">Termo que est&aacute; cursando</label>
+              <select id="perfilTermo" name="termo" required>
+                <option value="">Selecione o termo</option>
+                <option value="1">1&ordm; termo</option>
+                <option value="2">2&ordm; termo</option>
+                <option value="3">3&ordm; termo</option>
+                <option value="4">4&ordm; termo</option>
+                <option value="5">5&ordm; termo</option>
+                <option value="6">6&ordm; termo</option>
+              </select>
+
+              <button class="button primary full" type="submit">Salvar altera&ccedil;&otilde;es</button>
+            </form>
+          </section>
+
+          <section class="profile-form-card">
+            <h2>Alterar senha</h2>
+            <form action="../php/alterar_senha.php" method="post">
+              <label for="senhaAtual">Senha atual</label>
+              <input id="senhaAtual" name="senha_atual" type="password" required>
+
+              <label for="novaSenha">Nova senha</label>
+              <input id="novaSenha" name="nova_senha" type="password" minlength="6" required>
+
+              <label for="confirmarSenha">Confirmar nova senha</label>
+              <input id="confirmarSenha" name="confirmar_senha" type="password" minlength="6" required>
+
+              <button class="button primary full" type="submit">Alterar senha</button>
+            </form>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><p>&copy; 2026 Ester Girotto, Kepler Yuri, Kevyn Yuj. Todos os direitos reservados.</p></footer>
+  <script src="../js/auth-status.js?v=5"></script>
+  <script src="../js/auth-guard.js?v=5"></script>
+  <script src="../js/perfil.js?v=5"></script>
+</body>
+</html>

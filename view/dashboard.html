@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Área - Estruturas de Dados</title>
+  <link rel="stylesheet" href="../css/styles.css?v=6">
+</head>
+<body class="auth-checking" data-require-auth="true" data-study-page="dashboard">
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">ED</span><span>Estruturas de Dados</span></a>
+    <nav class="nav" aria-label="Menu principal">
+      <a href="entrega.html">Vis&atilde;o Geral</a>
+      <a href="tad.html">TAD</a>
+      <a href="lista-simples.html">Lista Simples</a>
+      <a href="lista-dupla.html">Lista Dupla</a>
+      <a href="manual.html">Manual</a>
+      <a class="active" href="dashboard.html">Minha &Aacute;rea</a>
+      <a class="login-link auth-link" href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">Plataforma de estudos</p>
+      <h1>Minha &Aacute;rea</h1>
+      <p>Bem-vindo, <span data-area-user>estudante</span>. Acompanhe sua rotina de estudo sem misturar com as p&aacute;ginas informativas.</p>
+    </section>
+
+    <section class="section area-section">
+      <nav class="area-tabs" aria-label="Navega&ccedil;&atilde;o da &aacute;rea de estudos">
+        <a class="active" href="dashboard.html">Dashboard</a>
+        <a href="trilha.html">Trilha</a>
+        <a href="cronometro.html">Cron&ocirc;metro</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="anotacoes.html">Anota&ccedil;&otilde;es</a>
+        <a href="revisao.html">Revis&atilde;o</a>
+      </nav>
+
+      <div class="area-stat-grid">
+        <article class="area-stat-card">
+          <span>Tempo total</span>
+          <strong data-area-total-time>00:00:00</strong>
+        </article>
+        <article class="area-stat-card">
+          <span>Etapas conclu&iacute;das</span>
+          <strong data-area-steps>0/6</strong>
+        </article>
+        <article class="area-stat-card">
+          <span>Melhor nota</span>
+          <strong data-area-best-score>0%</strong>
+        </article>
+        <article class="area-stat-card">
+          <span>Anota&ccedil;&otilde;es</span>
+          <strong data-dashboard-notes>0</strong>
+        </article>
+      </div>
+
+      <div class="area-dashboard-grid">
+        <section class="area-card">
+          <p class="eyebrow">Pr&oacute;ximo passo</p>
+          <h2 data-dashboard-next>Fundamentos</h2>
+          <p>Continue pela etapa pendente da trilha ou volte para revisar um conte&uacute;do j&aacute; estudado.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="trilha.html">Abrir trilha</a>
+            <a class="button tool" href="cronometro.html">Estudar agora</a>
+          </div>
+        </section>
+
+        <section class="area-card">
+          <p class="eyebrow">Mapa r&aacute;pido</p>
+          <h2>Progresso da trilha</h2>
+          <ul class="mini-trail" data-dashboard-trail></ul>
+        </section>
+      </div>
+
+      <section class="resource-strip">
+        <div class="section-heading">
+          <p class="eyebrow">Materiais de apoio</p>
+          <h2>Biblioteca r&aacute;pida</h2>
+          <p>Use estes materiais quando quiser refor&ccedil;ar uma aula, ver outro exemplo ou praticar antes da revis&atilde;o.</p>
+        </div>
+
+        <div class="video-grid">
+          <a class="video-card" href="https://www.youtube.com/watch?v=bryesHll0vY" target="_blank" rel="noopener">
+            <div class="video-thumb"><img src="https://img.youtube.com/vi/bryesHll0vY/hqdefault.jpg" alt="Thumbnail do v&iacute;deo sobre TAD"></div>
+            <div class="video-body">
+              <span>V&iacute;deo</span>
+              <strong>TAD sem mist&eacute;rio</strong>
+              <p>Reforce a ideia de opera&ccedil;&otilde;es, comportamento e implementa&ccedil;&atilde;o escondida.</p>
+            </div>
+          </a>
+
+          <a class="video-card" href="https://www.youtube.com/watch?v=Avn_2QyOJfQ" target="_blank" rel="noopener">
+            <div class="video-thumb"><img src="https://img.youtube.com/vi/Avn_2QyOJfQ/hqdefault.jpg" alt="Thumbnail do v&iacute;deo sobre listas simplesmente encadeadas"></div>
+            <div class="video-body">
+              <span>V&iacute;deo</span>
+              <strong>Lista simples na pr&aacute;tica</strong>
+              <p>Veja o percurso n&oacute; por n&oacute; e compare com o simulador do site.</p>
+            </div>
+          </a>
+
+          <a class="video-card" href="https://www.youtube.com/watch?v=eHEnXz46iB0" target="_blank" rel="noopener">
+            <div class="video-thumb"><img src="https://img.youtube.com/vi/eHEnXz46iB0/hqdefault.jpg" alt="Thumbnail do v&iacute;deo sobre listas duplamente encadeadas"></div>
+            <div class="video-body">
+              <span>V&iacute;deo</span>
+              <strong>Lista dupla com anterior e pr&oacute;ximo</strong>
+              <p>Use para revisar por que a lista dupla navega nos dois sentidos.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="study-link-grid">
+          <a class="study-link-card" href="https://www.ime.usp.br/~pf/algoritmos/aulas/lista.html" target="_blank" rel="noopener">
+            <span>Material USP</span>
+            <strong>Listas encadeadas</strong>
+            <p>Material de apoio para aprofundar estrutura, busca, inser&ccedil;&atilde;o e remo&ccedil;&atilde;o.</p>
+          </a>
+          <a class="study-link-card" href="https://cursa.app/pt/curso-gratuito/estrutura-de-dados-ceaa" target="_blank" rel="noopener">
+            <span>Curso gratuito</span>
+            <strong>Estrutura de Dados</strong>
+            <p>Op&ccedil;&atilde;o para estudar os conceitos em formato de curso complementar.</p>
+          </a>
+          <a class="study-link-card" href="https://www.cursou.com.br/informatica/programacao/estrutura-dados-c/" target="_blank" rel="noopener">
+            <span>Curso em C</span>
+            <strong>TAD, listas, filas e pilhas</strong>
+            <p>Bom para ver os mesmos temas conectados com implementa&ccedil;&atilde;o em linguagem C.</p>
+          </a>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer"><p>&copy; 2026 Ester Girotto, Kepler Yuri, Kevyn Yuj. Todos os direitos reservados.</p></footer>
+  <script src="../js/auth-status.js?v=5"></script>
+  <script src="../js/auth-guard.js?v=5"></script>
+  <script src="../js/area-estudo.js?v=6"></script>
+</body>
+</html>

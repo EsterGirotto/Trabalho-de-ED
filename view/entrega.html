@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vis&atilde;o Geral - Estruturas de Dados</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css?v=5">
 </head>
-<body>
+<body class="auth-checking" data-topico="visao-geral" data-require-auth="true">
   <header class="topbar">
     <a class="brand" href="index.html"><span class="brand-mark">ED</span><span>Estruturas de Dados</span></a>
     <nav class="nav" aria-label="Menu principal">
@@ -15,7 +15,8 @@
       <a href="lista-simples.html">Lista Simples</a>
       <a href="lista-dupla.html">Lista Dupla</a>
       <a href="manual.html">Manual</a>
-      <a class="login-link" href="login.html">Login</a>
+      <a href="dashboard.html">Minha &Aacute;rea</a>
+      <a class="login-link auth-link" href="login.html">Login</a>
     </nav>
   </header>
 
@@ -47,31 +48,90 @@
       </div>
     </section>
 
+    <section class="section">
+      <div class="section-heading wide">
+        <p class="eyebrow">Roteiro de estudo</p>
+        <h2>Como aproveitar melhor a trilha</h2>
+      </div>
+      <div class="timeline">
+        <article class="timeline-card">
+          <span class="timeline-number">1</span>
+          <div>
+            <strong>Comece pelo TAD</strong>
+            <p>Entenda a diferen&ccedil;a entre interface e implementa&ccedil;&atilde;o. Essa ideia aparece nas listas e em quase toda estrutura de dados.</p>
+          </div>
+        </article>
+        <article class="timeline-card">
+          <span class="timeline-number">2</span>
+          <div>
+            <strong>Estude lista simples</strong>
+            <p>Observe como cada n&oacute; guarda um valor e uma liga&ccedil;&atilde;o para o pr&oacute;ximo. Use o simulador para testar inser&ccedil;&atilde;o, busca e remo&ccedil;&atilde;o.</p>
+          </div>
+        </article>
+        <article class="timeline-card">
+          <span class="timeline-number">3</span>
+          <div>
+            <strong>Compare com lista dupla</strong>
+            <p>Veja como a refer&ecirc;ncia anterior facilita navega&ccedil;&atilde;o reversa, mas aumenta o custo de mem&oacute;ria e o cuidado nas opera&ccedil;&otilde;es.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Resumo comparativo</p>
+        <h2>O que muda entre os conte&uacute;dos</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Tema</th><th>Ideia principal</th><th>Opera&ccedil;&otilde;es importantes</th><th>Ponto de aten&ccedil;&atilde;o</th></tr></thead>
+          <tbody>
+            <tr><td>TAD</td><td>Contrato entre dados e opera&ccedil;&otilde;es.</td><td>Criar, consultar, alterar e validar.</td><td>Separar interface da implementa&ccedil;&atilde;o.</td></tr>
+            <tr><td>Lista simples</td><td>N&oacute; com dado e pr&oacute;ximo.</td><td>Inserir, buscar, remover e percorrer.</td><td>N&atilde;o possui acesso direto por &iacute;ndice.</td></tr>
+            <tr><td>Lista dupla</td><td>N&oacute; com anterior, dado e pr&oacute;ximo.</td><td>Avan&ccedil;ar, voltar, inserir e remover.</td><td>Atualizar os dois ponteiros sem quebrar a cadeia.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <section class="section video-section">
       <div class="section-heading">
         <p class="eyebrow">Apoio em v&iacute;deo</p>
-        <h2>Links do YouTube sobre Estruturas de Dados</h2>
+        <h2>V&iacute;deos para come&ccedil;ar</h2>
       </div>
       <div class="video-grid">
-        <a class="video-card" href="https://www.youtube.com/results?search_query=estrutura+de+dados+introdu%C3%A7%C3%A3o" target="_blank" rel="noopener">
-          <span>Comece por aqui</span>
-          <strong>Introdu&ccedil;&atilde;o a Estruturas de Dados</strong>
-          <p>Pesquise aulas gerais para entender por que organizar dados &eacute; essencial.</p>
+        <a class="video-card" href="https://www.youtube.com/watch?v=OwiHoj-mAi8" target="_blank" rel="noopener">
+          <div class="video-thumb"><img src="https://img.youtube.com/vi/OwiHoj-mAi8/hqdefault.jpg" alt="Thumbnail do v&iacute;deo sobre listas, pilhas e filas"></div>
+          <div class="video-body">
+            <span>Vis&atilde;o geral</span>
+            <strong>Listas, pilhas e filas</strong>
+            <p>Uma porta de entrada para estruturas lineares e suas diferen&ccedil;as.</p>
+          </div>
         </a>
-        <a class="video-card" href="https://www.youtube.com/results?search_query=estrutura+de+dados+algoritmos+programa%C3%A7%C3%A3o" target="_blank" rel="noopener">
-          <span>Fundamentos</span>
-          <strong>Estruturas de Dados e Algoritmos</strong>
-          <p>Veja como as estruturas influenciam busca, inser&ccedil;&atilde;o, remo&ccedil;&atilde;o e desempenho.</p>
+        <a class="video-card" href="https://www.youtube.com/watch?v=bryesHll0vY" target="_blank" rel="noopener">
+          <div class="video-thumb"><img src="https://img.youtube.com/vi/bryesHll0vY/hqdefault.jpg" alt="Thumbnail do v&iacute;deo sobre TAD"></div>
+          <div class="video-body">
+            <span>Base conceitual</span>
+            <strong>Tipo Abstrato de Dado</strong>
+            <p>Explica a rela&ccedil;&atilde;o entre dados, opera&ccedil;&otilde;es e interface.</p>
+          </div>
         </a>
-        <a class="video-card" href="https://www.youtube.com/results?search_query=estrutura+de+dados+C%23" target="_blank" rel="noopener">
-          <span>Com C#</span>
-          <strong>Estruturas de Dados em C#</strong>
-          <p>Encontre exemplos pr&aacute;ticos usando classes, objetos e cole&ccedil;&otilde;es.</p>
+        <a class="video-card" href="https://www.youtube.com/watch?v=Avn_2QyOJfQ" target="_blank" rel="noopener">
+          <div class="video-thumb"><img src="https://img.youtube.com/vi/Avn_2QyOJfQ/hqdefault.jpg" alt="Thumbnail do v&iacute;deo sobre lista simples"></div>
+          <div class="video-body">
+            <span>Primeira estrutura</span>
+            <strong>Lista simplesmente encadeada</strong>
+            <p>Mostra a estrutura que prepara o caminho para listas duplas.</p>
+          </div>
         </a>
       </div>
     </section>
   </main>
 
   <footer class="footer"><p>&copy; 2026 Ester Girotto, Kepler Yuri, Kevyn Yuj. Todos os direitos reservados.</p></footer>
+  <script src="../js/auth-status.js?v=5"></script>
+  <script src="../js/auth-guard.js?v=5"></script>
+  <script src="../js/progresso.js?v=5"></script>
 </body>
 </html>

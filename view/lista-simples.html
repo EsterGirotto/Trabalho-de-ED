@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lista Simples - Estruturas de Dados</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css?v=5">
 </head>
-<body>
+<body class="auth-checking" data-topico="lista-simples" data-require-auth="true">
   <header class="topbar">
     <a class="brand" href="index.html"><span class="brand-mark">ED</span><span>Estruturas de Dados</span></a>
     <nav class="nav" aria-label="Menu principal">
@@ -15,7 +15,8 @@
       <a class="active" href="lista-simples.html">Lista Simples</a>
       <a href="lista-dupla.html">Lista Dupla</a>
       <a href="manual.html">Manual</a>
-      <a class="login-link" href="login.html">Login</a>
+      <a href="dashboard.html">Minha &Aacute;rea</a>
+      <a class="login-link auth-link" href="login.html">Login</a>
     </nav>
   </header>
 
@@ -49,6 +50,24 @@
             <span class="cell null">null</span>
           </div>
 
+          <div class="metric-grid" aria-label="Complexidades da lista simplesmente encadeada">
+            <article class="metric-card">
+              <span class="metric-value">O(1)</span>
+              <strong>Inserir no in&iacute;cio</strong>
+              <p>Basta fazer o novo n&oacute; apontar para o antigo in&iacute;cio e atualizar a refer&ecirc;ncia da cabe&ccedil;a.</p>
+            </article>
+            <article class="metric-card">
+              <span class="metric-value">O(n)</span>
+              <strong>Buscar valor</strong>
+              <p>Sem acesso por &iacute;ndice, a lista precisa ser percorrida n&oacute; por n&oacute; at&eacute; encontrar o item.</p>
+            </article>
+            <article class="metric-card">
+              <span class="metric-value">O(n)</span>
+              <strong>Inserir no fim</strong>
+              <p>Quando n&atilde;o existe uma refer&ecirc;ncia para o &uacute;ltimo n&oacute;, &eacute; preciso percorrer a lista inteira.</p>
+            </article>
+          </div>
+
           <h3>Opera&ccedil;&otilde;es principais</h3>
           <ol class="step-list">
             <li><strong>Inserir no in&iacute;cio:</strong> o novo n&oacute; aponta para o antigo primeiro n&oacute; e passa a ser o in&iacute;cio.</li>
@@ -56,6 +75,22 @@
             <li><strong>Buscar:</strong> come&ccedil;a no in&iacute;cio e compara cada valor at&eacute; encontrar o dado ou chegar em <strong>null</strong>.</li>
             <li><strong>Remover:</strong> ajusta a refer&ecirc;ncia do n&oacute; anterior para pular o n&oacute; removido.</li>
           </ol>
+
+          <h3>Onde a lista simples faz sentido</h3>
+          <div class="detail-grid">
+            <article class="detail-card">
+              <strong>Hist&oacute;rico simples</strong>
+              <p>Quando o sistema s&oacute; precisa avan&ccedil;ar em uma sequ&ecirc;ncia, a lista simples evita armazenar refer&ecirc;ncias extras.</p>
+            </article>
+            <article class="detail-card">
+              <strong>Fila de processamento</strong>
+              <p>Itens podem ser conectados dinamicamente, sem exigir um bloco cont&iacute;nuo de mem&oacute;ria como em vetores.</p>
+            </article>
+            <article class="detail-card">
+              <strong>Estruturas maiores</strong>
+              <p>Listas encadeadas podem servir de base para pilhas, filas, tabelas hash com colis&atilde;o e grafos.</p>
+            </article>
+          </div>
 
           <h3>Exemplo em C#</h3>
           <pre><code>public class No
@@ -108,6 +143,39 @@ public class ListaSimples
     return false;
 }</code></pre>
           <p>A busca percorre a lista do come&ccedil;o ao fim. Se encontrar o valor, retorna <strong>true</strong>. Se chegar ao final da lista, representado por <strong>null</strong>, retorna <strong>false</strong>.</p>
+
+          <h3>Remo&ccedil;&atilde;o em C#</h3>
+          <pre><code>public bool Remover(int valor)
+{
+    No? atual = inicio;
+    No? anterior = null;
+
+    while (atual != null)
+    {
+        if (atual.Valor == valor)
+        {
+            if (anterior == null)
+                inicio = atual.Proximo;
+            else
+                anterior.Proximo = atual.Proximo;
+
+            return true;
+        }
+
+        anterior = atual;
+        atual = atual.Proximo;
+    }
+
+    return false;
+}</code></pre>
+          <p>Na remo&ccedil;&atilde;o, o ponto mais importante &eacute; guardar o n&oacute; anterior. Sem ele, n&atilde;o h&aacute; como fazer a lista pular o n&oacute; que ser&aacute; removido.</p>
+
+          <h3>Cuidados que mais caem</h3>
+          <ul class="callout-list">
+            <li><strong>Lista vazia:</strong> antes de acessar o primeiro n&oacute;, confira se <strong>inicio</strong> n&atilde;o &eacute; <strong>null</strong>.</li>
+            <li><strong>Remover o primeiro:</strong> nesse caso n&atilde;o existe anterior; a cabe&ccedil;a da lista precisa mudar.</li>
+            <li><strong>Fim da lista:</strong> o &uacute;ltimo n&oacute; sempre aponta para <strong>null</strong>, marcando que n&atilde;o h&aacute; pr&oacute;ximo elemento.</li>
+          </ul>
         </article>
         <aside class="topic-card red">
           <h3>Vantagens e cuidados</h3>
@@ -121,31 +189,66 @@ public class ListaSimples
       </div>
     </section>
 
+    <section class="section simulator-section" id="simulador">
+      <div class="section-heading">
+        <p class="eyebrow">Pr&aacute;tica visual</p>
+        <h2>Simulador de Lista Simples</h2>
+      </div>
+      <div class="simulator" data-simulador="simples">
+        <div class="simulator-toolbar">
+          <label class="simulator-field" for="valorListaSimples">
+            Valor
+            <input id="valorListaSimples" data-lista-valor type="number" value="15">
+          </label>
+          <button class="button tool" type="button" data-lista-acao="inicio">Inserir in&iacute;cio</button>
+          <button class="button tool" type="button" data-lista-acao="fim">Inserir fim</button>
+          <button class="button tool" type="button" data-lista-acao="buscar">Buscar</button>
+          <button class="button tool" type="button" data-lista-acao="remover">Remover</button>
+          <button class="button tool" type="button" data-lista-acao="limpar">Limpar</button>
+        </div>
+        <div class="simulator-visual" data-lista-visual aria-label="Simula&ccedil;&atilde;o de lista simplesmente encadeada"></div>
+        <p class="simulator-status" data-lista-status></p>
+      </div>
+    </section>
+
     <section class="section video-section">
       <div class="section-heading">
         <p class="eyebrow">Apoio em v&iacute;deo</p>
-        <h2>Links do YouTube sobre Lista Simples</h2>
+        <h2>V&iacute;deos sobre Lista Simples</h2>
       </div>
       <div class="video-grid">
-        <a class="video-card" href="https://www.youtube.com/results?search_query=lista+simplesmente+encadeada+estrutura+de+dados" target="_blank" rel="noopener">
-          <span>Buscar no YouTube</span>
-          <strong>Lista simplesmente encadeada</strong>
-          <p>Pesquise aulas com desenho de n&oacute;s, ponteiros e refer&ecirc;ncias.</p>
+        <a class="video-card" href="https://www.youtube.com/watch?v=Avn_2QyOJfQ" target="_blank" rel="noopener">
+          <div class="video-thumb"><img src="https://img.youtube.com/vi/Avn_2QyOJfQ/hqdefault.jpg" alt="Thumbnail do v&iacute;deo sobre listas simplesmente encadeadas"></div>
+          <div class="video-body">
+            <span>Aula principal</span>
+            <strong>Listas simplesmente encadeadas</strong>
+            <p>Explica n&oacute;s, refer&ecirc;ncias e opera&ccedil;&otilde;es b&aacute;sicas de uma lista simples.</p>
+          </div>
         </a>
-        <a class="video-card" href="https://www.youtube.com/results?search_query=lista+simplesmente+encadeada+C%23" target="_blank" rel="noopener">
-          <span>Buscar em C#</span>
-          <strong>Implementa&ccedil;&atilde;o em C#</strong>
-          <p>Veja exemplos pr&aacute;ticos de cria&ccedil;&atilde;o, inser&ccedil;&atilde;o e exibi&ccedil;&atilde;o.</p>
+        <a class="video-card" href="https://www.youtube.com/watch?v=Xlkh6-10ILw" target="_blank" rel="noopener">
+          <div class="video-thumb"><img src="https://img.youtube.com/vi/Xlkh6-10ILw/hqdefault.jpg" alt="Thumbnail do v&iacute;deo sobre pilha usando lista encadeada"></div>
+          <div class="video-body">
+            <span>Aplica&ccedil;&atilde;o pr&aacute;tica</span>
+            <strong>Pilha com lista encadeada</strong>
+            <p>Mostra como n&oacute;s encadeados podem sustentar outra estrutura de dados.</p>
+          </div>
         </a>
-        <a class="video-card" href="https://www.youtube.com/results?search_query=inserir+remover+buscar+lista+encadeada" target="_blank" rel="noopener">
-          <span>Buscar opera&ccedil;&otilde;es</span>
-          <strong>Inserir, remover e buscar</strong>
-          <p>Reforce as opera&ccedil;&otilde;es mais cobradas em listas encadeadas.</p>
+        <a class="video-card" href="https://www.youtube.com/watch?v=OwiHoj-mAi8" target="_blank" rel="noopener">
+          <div class="video-thumb"><img src="https://img.youtube.com/vi/OwiHoj-mAi8/hqdefault.jpg" alt="Thumbnail do v&iacute;deo sobre listas, pilhas e filas"></div>
+          <div class="video-body">
+            <span>Compara&ccedil;&atilde;o</span>
+            <strong>Listas, pilhas e filas</strong>
+            <p>Ajuda a diferenciar listas de outras estruturas lineares importantes.</p>
+          </div>
         </a>
       </div>
     </section>
   </main>
 
   <footer class="footer"><p>&copy; 2026 Ester Girotto, Kepler Yuri, Kevyn Yuj. Todos os direitos reservados.</p></footer>
+  <script src="../js/auth-status.js?v=5"></script>
+  <script src="../js/auth-guard.js?v=5"></script>
+  <script src="../js/progresso.js?v=5"></script>
+  <script src="../js/simulador-listas.js?v=5"></script>
 </body>
 </html>

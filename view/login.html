@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Estruturas de Dados</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css?v=5">
 </head>
 <body class="login-page">
   <main class="login-shell">
@@ -19,7 +19,10 @@
 
     <section class="login-card" aria-label="Formul&aacute;rio de login">
       <h2>Login</h2>
-      <form action="#" method="post">
+      <form action="../php/login.php" method="post">
+        <div class="form-message" data-form-message></div>
+        <input type="hidden" name="next" value="">
+
         <label for="email">E-mail</label>
         <input id="email" name="email" type="email" placeholder="seuemail@exemplo.com" required>
 
@@ -28,7 +31,7 @@
 
         <div class="form-row">
           <label class="remember"><input type="checkbox" name="lembrar"> Lembrar acesso</label>
-          <a href="#">Esqueci a senha</a>
+          <a href="cadastro.html">Criar nova conta</a>
         </div>
 
         <button class="button primary full" type="submit">Entrar</button>
@@ -40,5 +43,7 @@
   <footer class="login-footer">
     <p>&copy; 2026 Ester Girotto, Kepler Yuri, Kevyn Yuj. Todos os direitos reservados.</p>
   </footer>
+  <script src="../js/auth-status.js?v=5"></script>
+  <script src="../js/form-feedback.js?v=5"></script>
 </body>
 </html>

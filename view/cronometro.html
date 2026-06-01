@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cron&ocirc;metro - Estruturas de Dados</title>
+  <link rel="stylesheet" href="../css/styles.css?v=6">
+</head>
+<body class="auth-checking" data-require-auth="true" data-study-page="cronometro">
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">ED</span><span>Estruturas de Dados</span></a>
+    <nav class="nav" aria-label="Menu principal">
+      <a href="entrega.html">Vis&atilde;o Geral</a>
+      <a href="tad.html">TAD</a>
+      <a href="lista-simples.html">Lista Simples</a>
+      <a href="lista-dupla.html">Lista Dupla</a>
+      <a href="manual.html">Manual</a>
+      <a class="active" href="dashboard.html">Minha &Aacute;rea</a>
+      <a class="login-link auth-link" href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">Rotina de estudo</p>
+      <h1>Cron&ocirc;metro</h1>
+      <p>Registre quanto tempo voc&ecirc; passou estudando cada tema. O tempo continua sendo calculado enquanto voc&ecirc; navega pelo ambiente.</p>
+    </section>
+
+    <section class="section area-section">
+      <nav class="area-tabs" aria-label="Navega&ccedil;&atilde;o da &aacute;rea de estudos">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="trilha.html">Trilha</a>
+        <a class="active" href="cronometro.html">Cron&ocirc;metro</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="anotacoes.html">Anota&ccedil;&otilde;es</a>
+        <a href="revisao.html">Revis&atilde;o</a>
+      </nav>
+
+      <div class="timer-layout">
+        <section class="area-card timer-card">
+          <label class="simulator-field" for="timerTopic">
+            Tema estudado
+            <select id="timerTopic" data-timer-topic>
+              <option value="geral">Fundamentos</option>
+              <option value="tad">TAD</option>
+              <option value="simples">Lista Simples</option>
+              <option value="dupla">Lista Dupla</option>
+              <option value="revisao">Revis&atilde;o</option>
+            </select>
+          </label>
+          <div class="timer-display" data-timer-display>00:00:00</div>
+          <p class="timer-status" data-timer-status>Cron&ocirc;metro pausado.</p>
+          <div class="timer-actions">
+            <button class="button primary" type="button" data-timer-start>Iniciar</button>
+            <button class="button tool" type="button" data-timer-pause>Pausar e salvar</button>
+            <button class="button tool" type="button" data-timer-reset>Zerar sess&atilde;o</button>
+          </div>
+        </section>
+
+        <aside class="area-card">
+          <p class="eyebrow">Resumo</p>
+          <h2>Tempo salvo</h2>
+          <p>Status: <strong data-area-timer-state>Pausado</strong></p>
+          <p>Tema ativo: <strong data-area-active-topic>Nenhum</strong></p>
+          <p>Total geral: <strong data-area-total-time>00:00:00</strong></p>
+          <p>Total do tema selecionado: <strong data-topic-total>00:00:00</strong></p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><p>&copy; 2026 Ester Girotto, Kepler Yuri, Kevyn Yuj. Todos os direitos reservados.</p></footer>
+  <script src="../js/auth-status.js?v=5"></script>
+  <script src="../js/auth-guard.js?v=5"></script>
+  <script src="../js/area-estudo.js?v=6"></script>
+</body>
+</html>

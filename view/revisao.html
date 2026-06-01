@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revis&atilde;o - Estruturas de Dados</title>
+  <link rel="stylesheet" href="../css/styles.css?v=6">
+</head>
+<body class="auth-checking" data-require-auth="true" data-study-page="revisao">
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">ED</span><span>Estruturas de Dados</span></a>
+    <nav class="nav" aria-label="Menu principal">
+      <a href="entrega.html">Vis&atilde;o Geral</a>
+      <a href="tad.html">TAD</a>
+      <a href="lista-simples.html">Lista Simples</a>
+      <a href="lista-dupla.html">Lista Dupla</a>
+      <a href="manual.html">Manual</a>
+      <a class="active" href="dashboard.html">Minha &Aacute;rea</a>
+      <a class="login-link auth-link" href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">Fechamento da trilha</p>
+      <h1>Revis&atilde;o final</h1>
+      <p>Revise os pontos principais e conclua desafios pr&aacute;ticos para fixar os conceitos.</p>
+    </section>
+
+    <section class="section area-section">
+      <nav class="area-tabs" aria-label="Navega&ccedil;&atilde;o da &aacute;rea de estudos">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="trilha.html">Trilha</a>
+        <a href="cronometro.html">Cron&ocirc;metro</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="anotacoes.html">Anota&ccedil;&otilde;es</a>
+        <a class="active" href="revisao.html">Revis&atilde;o</a>
+      </nav>
+
+      <div class="area-stat-grid">
+        <article class="area-stat-card"><span>Tempo total</span><strong data-area-total-time>00:00:00</strong></article>
+        <article class="area-stat-card"><span>Etapas</span><strong data-area-steps>0/6</strong></article>
+        <article class="area-stat-card"><span>Melhor nota</span><strong data-area-best-score>0%</strong></article>
+      </div>
+
+      <div class="area-dashboard-grid">
+        <section class="area-card">
+          <p class="eyebrow">Resumo r&aacute;pido</p>
+          <h2>Antes de finalizar</h2>
+          <ul class="callout-list">
+            <li><strong>TAD:</strong> define comportamento por opera&ccedil;&otilde;es, escondendo detalhes internos.</li>
+            <li><strong>Lista simples:</strong> cada n&oacute; aponta apenas para o pr&oacute;ximo.</li>
+            <li><strong>Lista dupla:</strong> cada n&oacute; aponta para anterior e pr&oacute;ximo.</li>
+          </ul>
+          <a class="button primary" href="quiz.html">Fazer quiz geral</a>
+        </section>
+
+        <section class="area-card">
+          <p class="eyebrow">Desafios</p>
+          <h2>Checklist pr&aacute;tico</h2>
+          <div class="challenge-list" data-challenge-list></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><p>&copy; 2026 Ester Girotto, Kepler Yuri, Kevyn Yuj. Todos os direitos reservados.</p></footer>
+  <script src="../js/auth-status.js?v=5"></script>
+  <script src="../js/auth-guard.js?v=5"></script>
+  <script src="../js/area-estudo.js?v=6"></script>
+</body>
+</html>

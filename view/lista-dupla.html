@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lista Dupla - Estruturas de Dados</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css?v=5">
 </head>
-<body>
+<body class="auth-checking" data-topico="lista-dupla" data-require-auth="true">
   <header class="topbar">
     <a class="brand" href="index.html"><span class="brand-mark">ED</span><span>Estruturas de Dados</span></a>
     <nav class="nav" aria-label="Menu principal">
@@ -15,7 +15,8 @@
       <a href="lista-simples.html">Lista Simples</a>
       <a class="active" href="lista-dupla.html">Lista Dupla</a>
       <a href="manual.html">Manual</a>
-      <a class="login-link" href="login.html">Login</a>
+      <a href="dashboard.html">Minha &Aacute;rea</a>
+      <a class="login-link auth-link" href="login.html">Login</a>
     </nav>
   </header>
 
@@ -51,6 +52,24 @@
             <span class="cell null">null</span>
           </div>
 
+          <div class="metric-grid" aria-label="Complexidades da lista duplamente encadeada">
+            <article class="metric-card">
+              <span class="metric-value">O(1)</span>
+              <strong>Inserir no in&iacute;cio/fim</strong>
+              <p>Com refer&ecirc;ncias para in&iacute;cio e fim, a lista ajusta poucas liga&ccedil;&otilde;es.</p>
+            </article>
+            <article class="metric-card">
+              <span class="metric-value">O(n)</span>
+              <strong>Buscar valor</strong>
+              <p>Mesmo andando nos dois sentidos, encontrar um valor ainda pode exigir percorrer v&aacute;rios n&oacute;s.</p>
+            </article>
+            <article class="metric-card">
+              <span class="metric-value">+mem</span>
+              <strong>Custo extra</strong>
+              <p>Cada n&oacute; guarda duas refer&ecirc;ncias, aumentando o consumo de mem&oacute;ria.</p>
+            </article>
+          </div>
+
           <h3>Como acontece uma inser&ccedil;&atilde;o no fim</h3>
           <ol class="step-list">
             <li>Cria-se um novo n&oacute; com o valor desejado.</li>
@@ -58,6 +77,22 @@
             <li>O novo n&oacute; aponta de volta para o antigo &uacute;ltimo n&oacute;.</li>
             <li>A refer&ecirc;ncia <strong>fim</strong> &eacute; atualizada para o novo n&oacute;.</li>
           </ol>
+
+          <h3>Quando escolher lista dupla</h3>
+          <div class="detail-grid">
+            <article class="detail-card">
+              <strong>Navega&ccedil;&atilde;o ida e volta</strong>
+              <p>Boa para playlists, hist&oacute;rico de navegador, galerias e telas com bot&atilde;o pr&oacute;ximo/anterior.</p>
+            </article>
+            <article class="detail-card">
+              <strong>Remo&ccedil;&atilde;o mais pr&aacute;tica</strong>
+              <p>Quando voc&ecirc; j&aacute; tem o n&oacute; em m&atilde;os, pode usar a refer&ecirc;ncia anterior sem procurar desde o in&iacute;cio.</p>
+            </article>
+            <article class="detail-card">
+              <strong>Mais cuidado</strong>
+              <p>Cada inser&ccedil;&atilde;o ou remo&ccedil;&atilde;o precisa atualizar o ponteiro anterior e o pr&oacute;ximo corretamente.</p>
+            </article>
+          </div>
 
           <h3>Exemplo em C#</h3>
           <pre><code>public class NoDuplo
@@ -105,6 +140,42 @@ public class ListaDupla
     }
 }</code></pre>
           <p>Esse m&eacute;todo s&oacute; &eacute; poss&iacute;vel porque cada n&oacute; possui a refer&ecirc;ncia <strong>Anterior</strong>. Em uma lista simplesmente encadeada, o caminho natural existe apenas para frente.</p>
+
+          <h3>Remo&ccedil;&atilde;o em C#</h3>
+          <pre><code>public bool Remover(int valor)
+{
+    NoDuplo? atual = inicio;
+
+    while (atual != null)
+    {
+        if (atual.Valor == valor)
+        {
+            if (atual.Anterior != null)
+                atual.Anterior.Proximo = atual.Proximo;
+            else
+                inicio = atual.Proximo;
+
+            if (atual.Proximo != null)
+                atual.Proximo.Anterior = atual.Anterior;
+            else
+                fim = atual.Anterior;
+
+            return true;
+        }
+
+        atual = atual.Proximo;
+    }
+
+    return false;
+}</code></pre>
+          <p>Na lista dupla, a remo&ccedil;&atilde;o precisa religar os dois lados do n&oacute;. Se o n&oacute; removido for o primeiro ou o &uacute;ltimo, as refer&ecirc;ncias <strong>inicio</strong> e <strong>fim</strong> tamb&eacute;m mudam.</p>
+
+          <h3>Erros comuns</h3>
+          <ul class="callout-list">
+            <li><strong>Atualizar s&oacute; um lado:</strong> se alterar apenas o pr&oacute;ximo ou apenas o anterior, a lista fica inconsistente.</li>
+            <li><strong>Esquecer extremos:</strong> remover o primeiro ou o &uacute;ltimo n&oacute; exige atualizar <strong>inicio</strong> ou <strong>fim</strong>.</li>
+            <li><strong>N&atilde;o testar lista vazia:</strong> opera&ccedil;&otilde;es em lista vazia precisam tratar <strong>null</strong> antes de acessar campos.</li>
+          </ul>
         </article>
         <aside class="topic-card navy">
           <h3>Compara&ccedil;&atilde;o r&aacute;pida</h3>
@@ -120,31 +191,66 @@ public class ListaDupla
       </div>
     </section>
 
+    <section class="section simulator-section" id="simulador">
+      <div class="section-heading">
+        <p class="eyebrow">Pr&aacute;tica visual</p>
+        <h2>Simulador de Lista Dupla</h2>
+      </div>
+      <div class="simulator" data-simulador="dupla">
+        <div class="simulator-toolbar">
+          <label class="simulator-field" for="valorListaDupla">
+            Valor
+            <input id="valorListaDupla" data-lista-valor type="number" value="24">
+          </label>
+          <button class="button tool" type="button" data-lista-acao="inicio">Inserir in&iacute;cio</button>
+          <button class="button tool" type="button" data-lista-acao="fim">Inserir fim</button>
+          <button class="button tool" type="button" data-lista-acao="buscar">Buscar</button>
+          <button class="button tool" type="button" data-lista-acao="remover">Remover</button>
+          <button class="button tool" type="button" data-lista-acao="limpar">Limpar</button>
+        </div>
+        <div class="simulator-visual double" data-lista-visual aria-label="Simula&ccedil;&atilde;o de lista duplamente encadeada"></div>
+        <p class="simulator-status" data-lista-status></p>
+      </div>
+    </section>
+
     <section class="section video-section">
       <div class="section-heading">
         <p class="eyebrow">Apoio em v&iacute;deo</p>
-        <h2>Links do YouTube sobre Lista Dupla</h2>
+        <h2>V&iacute;deos sobre Lista Dupla</h2>
       </div>
       <div class="video-grid">
-        <a class="video-card" href="https://www.youtube.com/results?search_query=lista+duplamente+encadeada+estrutura+de+dados" target="_blank" rel="noopener">
-          <span>Buscar no YouTube</span>
-          <strong>Lista duplamente encadeada</strong>
-          <p>Pesquise aulas com explica&ccedil;&otilde;es visuais sobre anterior e pr&oacute;ximo.</p>
+        <a class="video-card" href="https://www.youtube.com/watch?v=eHEnXz46iB0" target="_blank" rel="noopener">
+          <div class="video-thumb"><img src="https://img.youtube.com/vi/eHEnXz46iB0/hqdefault.jpg" alt="Thumbnail do v&iacute;deo sobre listas duplamente encadeadas"></div>
+          <div class="video-body">
+            <span>Aula principal</span>
+            <strong>Listas duplamente encadeadas</strong>
+            <p>Mostra a estrutura com ponteiros anterior e pr&oacute;ximo.</p>
+          </div>
         </a>
-        <a class="video-card" href="https://www.youtube.com/results?search_query=lista+duplamente+encadeada+C%23" target="_blank" rel="noopener">
-          <span>Buscar em C#</span>
-          <strong>Implementa&ccedil;&atilde;o em C#</strong>
-          <p>Veja exemplos de classes com n&oacute; anterior, n&oacute; pr&oacute;ximo, in&iacute;cio e fim.</p>
+        <a class="video-card" href="https://www.youtube.com/watch?v=4VoGEH0jnps" target="_blank" rel="noopener">
+          <div class="video-thumb"><img src="https://img.youtube.com/vi/4VoGEH0jnps/hqdefault.jpg" alt="Thumbnail do v&iacute;deo sobre lista din&acirc;mica duplamente encadeada"></div>
+          <div class="video-body">
+            <span>Implementa&ccedil;&atilde;o</span>
+            <strong>Lista din&acirc;mica duplamente encadeada</strong>
+            <p>Complementa a aula com opera&ccedil;&otilde;es e cuidados na manipula&ccedil;&atilde;o dos ponteiros.</p>
+          </div>
         </a>
-        <a class="video-card" href="https://www.youtube.com/results?search_query=diferen%C3%A7a+lista+simples+e+lista+duplamente+encadeada" target="_blank" rel="noopener">
-          <span>Comparar estruturas</span>
-          <strong>Lista simples x lista dupla</strong>
-          <p>Compare vantagens, desvantagens, mem&oacute;ria e navega&ccedil;&atilde;o.</p>
+        <a class="video-card" href="https://www.youtube.com/watch?v=Avn_2QyOJfQ" target="_blank" rel="noopener">
+          <div class="video-thumb"><img src="https://img.youtube.com/vi/Avn_2QyOJfQ/hqdefault.jpg" alt="Thumbnail do v&iacute;deo sobre listas simplesmente encadeadas"></div>
+          <div class="video-body">
+            <span>Compara&ccedil;&atilde;o</span>
+            <strong>Revis&atilde;o da lista simples</strong>
+            <p>Ajuda a comparar o que muda quando cada n&oacute; passa a guardar tamb&eacute;m o anterior.</p>
+          </div>
         </a>
       </div>
     </section>
   </main>
 
   <footer class="footer"><p>&copy; 2026 Ester Girotto, Kepler Yuri, Kevyn Yuj. Todos os direitos reservados.</p></footer>
+  <script src="../js/auth-status.js?v=5"></script>
+  <script src="../js/auth-guard.js?v=5"></script>
+  <script src="../js/progresso.js?v=5"></script>
+  <script src="../js/simulador-listas.js?v=5"></script>
 </body>
 </html>

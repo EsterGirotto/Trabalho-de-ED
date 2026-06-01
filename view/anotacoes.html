@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anota&ccedil;&otilde;es - Estruturas de Dados</title>
+  <link rel="stylesheet" href="../css/styles.css?v=6">
+</head>
+<body class="auth-checking" data-require-auth="true" data-study-page="anotacoes">
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">ED</span><span>Estruturas de Dados</span></a>
+    <nav class="nav" aria-label="Menu principal">
+      <a href="entrega.html">Vis&atilde;o Geral</a>
+      <a href="tad.html">TAD</a>
+      <a href="lista-simples.html">Lista Simples</a>
+      <a href="lista-dupla.html">Lista Dupla</a>
+      <a href="manual.html">Manual</a>
+      <a class="active" href="dashboard.html">Minha &Aacute;rea</a>
+      <a class="login-link auth-link" href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">Estudo ativo</p>
+      <h1>Anota&ccedil;&otilde;es</h1>
+      <p>Guarde observa&ccedil;&otilde;es, d&uacute;vidas e resumos por tema, sem alterar o banco de dados.</p>
+    </section>
+
+    <section class="section area-section">
+      <nav class="area-tabs" aria-label="Navega&ccedil;&atilde;o da &aacute;rea de estudos">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="trilha.html">Trilha</a>
+        <a href="cronometro.html">Cron&ocirc;metro</a>
+        <a href="quiz.html">Quiz</a>
+        <a class="active" href="anotacoes.html">Anota&ccedil;&otilde;es</a>
+        <a href="revisao.html">Revis&atilde;o</a>
+      </nav>
+
+      <section class="area-card note-card">
+        <label class="simulator-field" for="noteTopic">
+          Tema da anota&ccedil;&atilde;o
+          <select id="noteTopic" data-note-topic>
+            <option value="geral">Fundamentos</option>
+            <option value="tad">TAD</option>
+            <option value="simples">Lista Simples</option>
+            <option value="dupla">Lista Dupla</option>
+            <option value="revisao">Revis&atilde;o</option>
+          </select>
+        </label>
+        <textarea class="note-textarea" data-note-text placeholder="Escreva aqui suas observa&ccedil;&otilde;es..."></textarea>
+        <p class="simulator-status" data-note-status></p>
+        <div class="timer-actions">
+          <button class="button primary" type="button" data-note-save>Salvar anota&ccedil;&atilde;o</button>
+          <button class="button tool" type="button" data-note-clear>Limpar</button>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer"><p>&copy; 2026 Ester Girotto, Kepler Yuri, Kevyn Yuj. Todos os direitos reservados.</p></footer>
+  <script src="../js/auth-status.js?v=5"></script>
+  <script src="../js/auth-guard.js?v=5"></script>
+  <script src="../js/area-estudo.js?v=6"></script>
+</body>
+</html>

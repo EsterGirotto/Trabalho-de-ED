@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manual - Estruturas de Dados</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css?v=5">
 </head>
-<body>
+<body class="auth-checking" data-topico="manual" data-require-auth="true">
   <header class="topbar">
     <a class="brand" href="index.html"><span class="brand-mark">ED</span><span>Estruturas de Dados</span></a>
     <nav class="nav" aria-label="Menu principal">
@@ -15,7 +15,8 @@
       <a href="lista-simples.html">Lista Simples</a>
       <a href="lista-dupla.html">Lista Dupla</a>
       <a class="active" href="manual.html">Manual</a>
-      <a class="login-link" href="login.html">Login</a>
+      <a href="dashboard.html">Minha &Aacute;rea</a>
+      <a class="login-link auth-link" href="login.html">Login</a>
     </nav>
   </header>
 
@@ -29,13 +30,13 @@
     <section class="section">
       <div class="split">
         <article class="lesson compact">
-          <h3>Manual sugerido</h3>
+          <h3>Como executar</h3>
           <ol>
             <li>Instalar um servidor local, como XAMPP, WAMP ou Laragon.</li>
             <li>Copiar a pasta do projeto para o diret&oacute;rio do servidor, por exemplo, <strong>htdocs</strong>.</li>
-            <li>Criar um banco de dados MySQL para a aplica&ccedil;&atilde;o.</li>
-            <li>Configurar usu&aacute;rio, senha, host e nome do banco no arquivo PHP de conex&atilde;o.</li>
-            <li>Abrir o navegador e acessar o endere&ccedil;o local do projeto.</li>
+            <li>Importar o arquivo <strong>database/estruturas_dados.sql</strong> no phpMyAdmin.</li>
+            <li>Conferir usu&aacute;rio, senha, host e nome do banco em <strong>php/conexao.php</strong>.</li>
+            <li>Abrir o navegador e acessar <strong>http://localhost/Trabalho-de-ED/view/index.html</strong>.</li>
           </ol>
         </article>
         <article class="checklist">
@@ -46,7 +47,12 @@
           <label><input type="checkbox"> Conte&uacute;do sobre Lista Duplamente Encadeada</label>
           <label><input type="checkbox"> Exemplos de c&oacute;digo em C#</label>
           <label><input type="checkbox"> Manual de instala&ccedil;&atilde;o</label>
-          <label><input type="checkbox"> Interface de login</label>
+          <label><input type="checkbox"> Cadastro, login e salvamento de progresso</label>
+          <label><input type="checkbox"> Perfil com foto, dados pessoais e altera&ccedil;&atilde;o de senha</label>
+          <label><input type="checkbox"> Bloqueio das telas para usu&aacute;rios sem login</label>
+          <label><input type="checkbox"> Minha &Aacute;rea com dashboard, trilha, cron&ocirc;metro, quiz, anota&ccedil;&otilde;es e revis&atilde;o</label>
+          <label><input type="checkbox"> Salvamento local no navegador sem altera&ccedil;&atilde;o no banco de dados</label>
+          <label><input type="checkbox"> Simuladores interativos de listas</label>
         </article>
       </div>
     </section>
@@ -54,28 +60,40 @@
     <section class="section video-section">
       <div class="section-heading">
         <p class="eyebrow">Apoio em v&iacute;deo</p>
-        <h2>Links do YouTube sobre configura&ccedil;&atilde;o</h2>
+        <h2>V&iacute;deos sobre configura&ccedil;&atilde;o</h2>
       </div>
       <div class="video-grid">
-        <a class="video-card" href="https://www.youtube.com/results?search_query=como+usar+xampp+php+mysql" target="_blank" rel="noopener">
-          <span>Servidor local</span>
-          <strong>Como usar XAMPP com PHP e MySQL</strong>
-          <p>Pesquise tutoriais para iniciar Apache, MySQL e acessar projetos pelo localhost.</p>
+        <a class="video-card" href="https://www.youtube.com/watch?v=OT6VSmHMxmY" target="_blank" rel="noopener">
+          <div class="video-thumb"><img src="https://img.youtube.com/vi/OT6VSmHMxmY/hqdefault.jpg" alt="Thumbnail do v&iacute;deo sobre XAMPP"></div>
+          <div class="video-body">
+            <span>Servidor local</span>
+            <strong>XAMPP para iniciantes</strong>
+            <p>Ajuda a entender Apache, MySQL, PHP e a pasta de projetos local.</p>
+          </div>
         </a>
-        <a class="video-card" href="https://www.youtube.com/results?search_query=criar+banco+mysql+phpmyadmin" target="_blank" rel="noopener">
-          <span>Banco de dados</span>
-          <strong>Criar banco no phpMyAdmin</strong>
-          <p>Veja como criar bancos, tabelas e preparar a conex&atilde;o com PHP.</p>
+        <a class="video-card" href="https://www.youtube.com/watch?v=OrMqE-cXTf4" target="_blank" rel="noopener">
+          <div class="video-thumb"><img src="https://img.youtube.com/vi/OrMqE-cXTf4/hqdefault.jpg" alt="Thumbnail do v&iacute;deo sobre MySQL e phpMyAdmin"></div>
+          <div class="video-body">
+            <span>Banco de dados</span>
+            <strong>MySQL e phpMyAdmin</strong>
+            <p>Mostra cria&ccedil;&atilde;o de banco, tabelas e primeiros registros.</p>
+          </div>
         </a>
-        <a class="video-card" href="https://www.youtube.com/results?search_query=formul%C3%A1rio+login+php+mysql" target="_blank" rel="noopener">
-          <span>Autentica&ccedil;&atilde;o</span>
-          <strong>Login com PHP e MySQL</strong>
-          <p>Encontre exemplos para conectar a interface de login a um back-end real.</p>
+        <a class="video-card" href="https://www.youtube.com/watch?v=BSqtIw_hW8M" target="_blank" rel="noopener">
+          <div class="video-thumb"><img src="https://img.youtube.com/vi/BSqtIw_hW8M/hqdefault.jpg" alt="Thumbnail do v&iacute;deo sobre CRUD com PHP e MySQL"></div>
+          <div class="video-body">
+            <span>Integra&ccedil;&atilde;o</span>
+            <strong>CRUD com PHP e MySQL</strong>
+            <p>Complementa a parte de formul&aacute;rios, conex&atilde;o e opera&ccedil;&otilde;es no banco.</p>
+          </div>
         </a>
       </div>
     </section>
   </main>
 
   <footer class="footer"><p>&copy; 2026 Ester Girotto, Kepler Yuri, Kevyn Yuj. Todos os direitos reservados.</p></footer>
+  <script src="../js/auth-status.js?v=5"></script>
+  <script src="../js/auth-guard.js?v=5"></script>
+  <script src="../js/progresso.js?v=5"></script>
 </body>
 </html>
